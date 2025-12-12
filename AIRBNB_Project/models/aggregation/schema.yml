@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: agg_host_status_summary
+    description: "Summary of listing counts aggregated by host Superhost status."
+    columns:
+      - name: host_is_superhost_flag
+        data_type: BOOLEAN
+        description: "True if the host is a Superhost ('t'), False otherwise ('f')."
+      - name: total_listings
+        data_type: NUMBER
+        description: "The total number of listings for the corresponding host status."
+  - name: agg_host_performance
+    description: "Calculates the Host Performance Score based on listing price and total reviews."
+    columns:
+      - name: host_id
+        tests:
+          - unique
+          - not_null
+      - name: host_name
+      - name: total_listings
+        description: "Count of all active listings associated with the host."
+      - name: avg_listing_price
+        description: "Average price (USD) of the host's listings."
+      - name: total_reviews
+        description: "Total number of reviews received across all the host's listings."
+      - name: host_performance_score
+        description: "Calculated score: (Avg_Price * Total_Reviews) / Total_Listings."

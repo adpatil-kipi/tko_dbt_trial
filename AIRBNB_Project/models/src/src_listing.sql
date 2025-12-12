@@ -1,5 +1,5 @@
 with raw_listings as (
-select * from AIRBNB.RAW.RAW_LISTINGS
+select * from DBT_AIRBNB_DB.RAW.RAW_LISTINGS
 )
 select
 id as listing_id,

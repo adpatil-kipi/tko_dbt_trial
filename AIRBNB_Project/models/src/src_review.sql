@@ -1,5 +1,5 @@
 with raw_reviews as (
-select * from AIRBNB.RAW.RAW_REVIEWS
+select * from DBT_AIRBNB_DB.RAW.RAW_REVIEWS
 )
 select
 listing_id,
