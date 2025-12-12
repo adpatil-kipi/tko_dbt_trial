@@ -5,17 +5,12 @@
         strategy='check',
         check_cols=['price'], 
         unique_key='listing_id',
-        target_model='dim_listings_w_hosts',
-        target_schema='SCD_HISTORY' 
-    )
+        target_schema='DEV')
 }}
-
 
 SELECT
     listing_id,
-    price,
-    updated_at AS dbt_updated_at
+    price
 FROM
     {{ ref('dim_listings_w_hosts') }}
-
 {% endsnapshot %}
